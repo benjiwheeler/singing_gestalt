@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Singing Gestalt</title>
+
+  <style>
+    /* =========================================================
+       1. PAGE-WIDE DESIGN VARIABLES
+       Change these values to quickly adjust the overall look.
+       ========================================================= */
+    :root {
+      --page-bg: #f4f0e8;
+      --header-bg: #777274;
+      --intro-bg: #b9d3c3;
+      --details-bg: #eadfcd;
+
+      --text: #252525;
+      --muted: #4e4e4e;
+      --accent: #23617a;
+
+      --content-width: 980px;
+      --page-padding: 28px;
+      --gap: 18px;
+
+      --radius: 2px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+    }
+
+    /* =========================================================
+       2. BASIC RESET / GLOBAL PAGE STYLES
+       ========================================================= */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #d8d4cc;
+    }
+
+    body {
+      margin: 0;
+      padding: 32px 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* =========================================================
+       3. MAIN FLYER / PAGE WRAPPER
+       This is the centered desktop "sheet."
+       ========================================================= */
+    .flyer {
+      width: min(100%, var(--content-width));
+      margin: 0 auto;
+      background: var(--page-bg);
+      padding: var(--page-padding);
+      box-shadow: var(--shadow);
+    }
+
+    /* =========================================================
+       4. TITLE BANNER
+       ========================================================= */
+    .title-banner {
+      background: var(--header-bg);
+      color: white;
+      text-align: center;
+      padding: 34px 20px 40px;
+      margin-bottom: var(--gap);
+    }
+
+    .title-banner h1 {
+      margin: 0;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      line-height: 1;
+    }
+
+    /* =========================================================
+       5. INTRO SECTION
+       Desktop: portrait on left, green text panel on right.
+       ========================================================= */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(240px, 34%) 1fr;
+      gap: var(--gap);
+      align-items: stretch;
+      margin-bottom: var(--gap);
+    }
+
+    .portrait {
+      width: 100%;
+      height: 100%;
+      min-height: 350px;
+      object-fit: cover;
+      border: 2px solid rgba(0, 0, 0, 0.12);
+      background: #c8c8c8;
+    }
+
+    .intro-copy {
+      background: var(--intro-bg);
+      padding: 26px 30px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.22rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .intro-copy p {
+      margin: 0 0 1rem;
+    }
+
+    .intro-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* =========================================================
+       6. EVENT DETAILS PANEL
+       ========================================================= */
+    .event-panel {
+      background: var(--details-bg);
+      padding: 26px 30px 30px;
+      margin-bottom: var(--gap);
+      text-align: center;
+    }
+
+    .event-meta {
+      display: grid;
+      gap: 4px;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.18rem;
+      font-weight: 700;
+    }
+
+    .event-meta p {
+      margin: 0;
+    }
+
+    .registration {
+      margin: 0 auto;
+      max-width: 850px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+
+    .registration a {
+      color: var(--accent);
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .registration a:hover,
+    .registration a:focus {
+      text-decoration: underline;
+    }
+
+    /* =========================================================
+       7. BIOGRAPHY SECTION
+       ========================================================= */
+    .bio {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      padding: 4px 2px 0;
+    }
+
+    .bio p {
+      margin: 0;
+    }
+
+    .bio strong {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 800;
+    }
+
+    /* =========================================================
+       8. SMALL / MOBILE LAYOUT
+       BREAKPOINT: 760px
+
+       Below this width, the portrait and intro text stack
+       vertically and spacing/type are reduced for phones.
+       ========================================================= */
+    @media (max-width: 760px) {
+      body {
+        padding: 0;
+      }
+
+      .flyer {
+        width: 100%;
+        padding: 14px;
+        box-shadow: none;
+      }
+
+      .title-banner {
+        padding: 24px 14px 28px;
+        margin-bottom: 14px;
+      }
+
+      .title-banner h1 {
+        font-size: clamp(2.65rem, 14vw, 4.3rem);
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 14px;
+      }
+
+      .portrait {
+        min-height: 0;
+        aspect-ratio: 4 / 5;
+      }
+
+      .intro-copy,
+      .event-panel {
+        padding: 20px;
+      }
+
+      .intro-copy {
+        font-size: 1.08rem;
+      }
+
+      .event-panel {
+        margin-bottom: 14px;
+      }
+
+      .event-meta {
+        font-size: 1.05rem;
+      }
+
+      .registration,
+      .bio {
+        font-size: 1rem;
+      }
+    }
+
+    /* =========================================================
+       9. VERY SMALL PHONES
+       A little extra tightening for narrow screens.
+       ========================================================= */
+    @media (max-width: 420px) {
+      .flyer {
+        padding: 10px;
+      }
+
+      .intro-copy,
+      .event-panel {
+        padding: 16px;
+      }
+
+      .title-banner h1 {
+        font-size: 2.55rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="flyer">
+
+    <!-- =======================================================
+         TITLE / TOP BANNER
+         ======================================================= -->
+    <header class="title-banner">
+      <h1>Singing Gestalt</h1>
+    </header>
+
+    <!-- =======================================================
+         INTRODUCTION
+         On desktop: two columns.
+         On mobile: stacks into one column.
+         ======================================================= -->
+    <section class="intro-grid">
+
+      <!-- Dummy portrait link: replace with the real image URL/file -->
+      <img
+        class="portrait"
+        src="https://example.com/nancy-lunney-wheeler-portrait.jpg"
+        alt="Portrait of Nancy Lunney Wheeler"
+      />
+
+      <div class="intro-copy">
+        <p>Songs are more than tunes – they are little houses in which our hearts live.</p>
+
+        <p>
+          Within your unconscious lives a library of feeling, wisdom, and memory—carried in
+          the songs you know. From lullabies to songs of love and longing, you hold an
+          emotional vocabulary you may not even realize. Even if you think you've forgotten
+          the songs, your subconscious has been holding them since birth.
+        </p>
+
+        <p>
+          If singing in front of others terrifies you, this workshop is for you. If you've
+          been too shy to try, this is your chance. Singing Gestalt invites a deeper
+          connection to your emotions—through a self you may not have met.
+        </p>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         EVENT DETAILS / REGISTRATION
+         ======================================================= -->
+    <section class="event-panel">
+      <div class="event-meta">
+        <p>When: July 18, 2026</p>
+        <p>Where: Santa Cruz</p>
+        <p>Time: 2pm–4pm</p>
+      </div>
+
+      <p class="registration">
+        $25 due upon registration. Refundable if cancellation is made 48 hours prior.<br />
+        Register early; space is limited to 14 participants.<br />
+        <a href="mailto:SingingGestalt@gmail.com">SingingGestalt@gmail.com</a>
+        to register or for more information and to join the mailing list.
+      </p>
+    </section>
+
+    <!-- =======================================================
+         FACILITATOR BIO
+         ======================================================= -->
+    <section class="bio">
+      <p>
+        <strong>Nancy Lunney Wheeler, MA, MFT,</strong> is known for integrating Gestalt with
+        singing, an approach she developed and has taught at Esalen Institute and
+        internationally for many years. Formerly a vocal coach and accompanist, she worked
+        with established actors and performers in New York and Los Angeles. She also served
+        as Programs Director at Esalen Institute for 30 years. She currently serves on
+        Esalen's Board of Trustees and is based in Santa Cruz, CA, where she conducts
+        in-person sessions for groups and individuals.
+      </p>
+    </section>
+
+  </main>
+</body>
+</html>
