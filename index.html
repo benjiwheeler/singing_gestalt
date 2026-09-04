@@ -215,6 +215,11 @@
       }
 
       .portrait {
+        /* On small screens, make the portrait narrower and centered
+           so it doesn't dominate the full-width layout. */
+        width: 60%;
+        max-width: 60%;
+        margin: 0 auto;
         min-height: 0;
         aspect-ratio: 4 / 5;
       }
